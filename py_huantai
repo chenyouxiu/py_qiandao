@@ -15,9 +15,9 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 # 创建一个handler，用于写入日志文件
 # w 模式会记住上次日志记录的位置
-fh = logging.FileHandler('./log.txt', mode='a', encoding='utf-8')
-fh.setFormatter(logging.Formatter("%(message)s"))
-logger.addHandler(fh)
+#fh = logging.FileHandler('./log.txt', mode='a', encoding='utf-8')
+#fh.setFormatter(logging.Formatter("%(message)s"))
+#logger.addHandler(fh)
 # 创建一个handler，输出到控制台
 ch = logging.StreamHandler()
 ch.setFormatter(logging.Formatter("[%(asctime)s]:%(levelname)s:%(message)s"))
@@ -298,14 +298,15 @@ def cashingCredits(info_marking,info_type,info_credits):
 #函数入口
 def main(event, context):
 
-    users = readConfig()
+    #users = readConfig()
     #清空上一个用户的日志记录
-    open('./log.txt',mode='w',encoding='utf-8')
+    #open('./log.txt',mode='w',encoding='utf-8')
     global client
     global HT_cookies
     global HT_UserAgent
-    HT_cookies = users.get("config","cookies")
-    HT_UserAgent = users.get("config","User-Agent")
+    
+    HT_cookies = os.environ.get('HT_cookies')
+    HT_UserAgent = os.environ.get('HT_UserAgent')
     #print(HT_cookies,HT_UserAgent)
     client = get_infouser(HT_cookies,HT_UserAgent)
 
@@ -315,7 +316,7 @@ def main(event, context):
         daily_viewgoods() #执行每日商品浏览任务
         daily_sharegoods() #执行每日商品分享任务
         daily_viewpush() #执行每日点推送任务
-
+    '''
     if users.has_option("dingding", 'dingtalkWebhook'):
         notify.sendDing(users.get("dingding","dingtalkWebhook"),users.get("dingding","dingtalksecret")) #钉钉推送日记
     if users.has_option("telegramBot", 'tgToken'):
@@ -328,7 +329,7 @@ def main(event, context):
         notify.sendIFTTT(users.get("IFTTT","apiKey"),users.get("IFTTT","eventName")) #IFTTT 推送日记
     if users.has_option("Bark", 'Barkkey'):
         notify.sendBark(users.get("Bark","Barkkey"),users.get("Bark","Barksave")) #Bark推送助手
-       
+    '''
 #主函数入口
 if __name__ == '__main__':
     main("","")
