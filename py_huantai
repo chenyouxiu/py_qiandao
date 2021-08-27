@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2021/8/17
 # @Author  : hwkxk(丶大K丶)
-# @Email   : k@hwkxk.cn
+#@邮箱：k@hwkxk.cn
+#欢太签到
 
-import requests,json,time,logging,traceback,os,random,notify,datetime,configparser
+导入请求、json、时间、日志记录、回溯、操作系统、随机、通知、日期时间、配置解析器
 
 #用户登录全局变量
 client = None
