@@ -4,14 +4,14 @@
 #@邮箱：k@hwkxk.cn
 #欢太签到
 
-token = ''
+
 '''
 Author: Squaregentleman
 Modifier: Oreo
 Date: Tue Aug 10 08:24:30 UTC 2021
 cron: 25 8 * * *
 new Env('欢太签到');
-export = HT_token
+export  HT_token= ''
 ------------
 '''
 
