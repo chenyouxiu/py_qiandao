@@ -11,7 +11,7 @@ Modifier: Oreo
 Date: Tue Aug 10 08:24:30 UTC 2021
 cron: 25 8 * * *
 new Env('欢太签到');
-new export('HT_token')
+export = HT_token
 ------------
 '''
 
