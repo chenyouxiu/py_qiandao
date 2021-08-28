@@ -4,25 +4,14 @@
 #@邮箱：k@hwkxk.cn
 #欢太签到
 
-
+token = ''
 '''
 Author: Squaregentleman
 Modifier: Oreo
 Date: Tue Aug 10 08:24:30 UTC 2021
-cron: 25 20 * * *
+cron: 25 8 * * *
 new Env('欢太签到');
 ------------
-环境变量说明
-MI_USER: 账号      仅支持手机号，多账号用 # 分隔
-MI_PWD: 密码       多账号用 # 分隔，且与账号一一对应
-STEP: 步数         空或不填则为 18000-25000 之间随机，自定义示例: 18763 或 19000-24000
-PMODE: 推送模式 || PKEY: 具体推送格式填写（不带 [TG: ]，请用具体的值代替)
-wx                [Server 酱: skey]
-nwx               [新 Server 酱: skey]
-tg                [TG: tg_bot_token@user_id]
-qwx               [企业微信: touser-corpid-corpsecret-agentid 其中 touser 可填 @all，agenid 不填默认为 1000002]
-pp                [PushPlus: push_plus_token]
-off               [关闭推送]
 '''
 
 导入请求、json、时间、日志记录、回溯、操作系统、随机、通知、日期时间、配置解析器
