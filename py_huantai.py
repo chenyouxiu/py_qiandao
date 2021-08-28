@@ -14,7 +14,6 @@ new Env('欢太签到')
 
 ------------
 '''
-HT_TOKEN= ''
 import requests,json,time,logging,traceback,os,random,notify,datetime,configparser
 
 #用户登录全局变量
