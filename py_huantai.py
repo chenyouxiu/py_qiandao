@@ -8,7 +8,7 @@ Author: Squaregentleman
 Modifier: Oreo
 Date: Tue Aug 10 08:24:30 UTC 2021
 cron: 25 20 * * *
-new Env('小米改步');
+new Env('欢太签到');
 ------------
 环境变量说明
 MI_USER: 账号      仅支持手机号，多账号用 # 分隔
