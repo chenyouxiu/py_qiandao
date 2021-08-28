@@ -11,10 +11,10 @@ Modifier: Oreo
 Date: Tue Aug 10 08:24:30 UTC 2021
 cron: 25 8 * * *
 new Env('欢太签到');
-export HT_token= ''
+
 ------------
 '''
-
+HT_TOKEN= ''
 import requests,json,time,logging,traceback,os,random,notify,datetime,configparser
 
 #用户登录全局变量
