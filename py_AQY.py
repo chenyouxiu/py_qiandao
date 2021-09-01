@@ -7,8 +7,9 @@ Modifier: Oreo
 Date: Tue Aug 10 08:24:30 UTC 2021
 cron: 25 0/8 * * *
 new Env('爱奇艺签到');
-import requests,os
+
 '''
+import requests,os
 
 class IQY_sign:
     '''
