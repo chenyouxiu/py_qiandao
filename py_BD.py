@@ -3,6 +3,7 @@
 new Env('百度贴吧签到') 
 Cron:0 0 0/8 * * *
 '''
+# -*- coding:utf-8 -*-
 import os
 import datetime
 import requests
@@ -10,6 +11,7 @@ import hashlib
 import time
 import copy
 import logging
+import re
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
@@ -154,7 +156,6 @@ def get_favorite(bduss):
         else:
             t.append(i)
     logger.info("获取关注的贴吧结束")
-    print('1')
     return t
 
 
@@ -184,20 +185,30 @@ def client_sign(bduss, tbs, fid, kw):
     return res
 
 
+def get_lists(favorites):
+    favorites_lists = []
+    for i in range(0, len(favorites)):
+        favorites_patern = re.compile("name': '(.*?)', 'favo")
+        favorites_list = re.findall(favorites_patern, str(favorites[i]))
+        favorites_lists.append(favorites_list)
+
+    return favorites_lists
+
+
 def main():
     global signLog
 
-    b = os.environ.get('BD_BDUSS').split('#')
+    b = os.environ['BDUSS'].split('#')
 
     for n, i in enumerate(b):
 
         logger.info("开始签到第" + str(n+1) + "个用户")
-        print(i)
         tbs = get_tbs(i)
         favorites = get_favorite(i)
-        print('1')
         signLog += "### ✨第" + str(n+1) + "个用户签到：\n```\n"
-        print(favorites)
+        favoritess = get_lists(favorites)
+        print(f'关注的贴吧数为：{len(favoritess)}')
+        print(favoritess)
         for j in favorites:
             client_sign(i, tbs, j["id"], j["name"])
         signLog += "```\n"
@@ -213,3 +224,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
