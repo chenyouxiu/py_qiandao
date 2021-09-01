@@ -14,7 +14,7 @@ import logging
 import re
 
 logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # API_URL
