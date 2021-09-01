@@ -47,7 +47,7 @@ class IQY_sign:
         }
         res = requests.get(url, params=params, verify=False)
         # print(res.text)
-         if res.json()["code"] == "A00000":
+        if res.json()["code"] == "A00000":
             growth = res.json()[
                 "data"]["signInfo"]["data"]["rewardMap"]["growth"]
             vipStatus = res.json()["data"]["userInfo"]["vipStatus"]
