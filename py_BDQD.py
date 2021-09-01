@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 '''
 new Env('百度贴吧签到') 
-Cron:0 0 0/8 * * *
+Cron:0 0 1/8 * * *
 '''
 # -*- coding:utf-8 -*-
 import os
