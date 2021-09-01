@@ -179,9 +179,9 @@ def client_sign(bduss, tbs, fid, kw):
     data = encodeData(data)
     res = s.post(url=SIGN_URL, data=data, timeout=5).json()
     if res['error_code'] == '0':
-        signLog += kw+'吧签到成功,获得经验+'+res['user_info']['sign_bonus_point']+'\n'
+        logger.info(kw+'吧------签到成功,获得经验+' + res['user_info']['sign_bonus_point']+'\n')
     else:
-        signLog += kw+'吧签到状态:'+res['error_msg']+'\n'
+        logger.info(kw+'吧------已经签到了')
     return res
 
 
@@ -207,19 +207,21 @@ def main():
         favorites = get_favorite(i)
         signLog += "### ✨第" + str(n+1) + "个用户签到：\n```\n"
         favoritess = get_lists(favorites)
-        print(f'关注的贴吧数为：{len(favoritess)}')
-        print(favoritess)
+        logger.info("关注的贴吧数为：" + str(len(favoritess)))
+        logger.info(favoritess)
         for j in favorites:
             client_sign(i, tbs, j["id"], j["name"])
         signLog += "```\n"
         logger.info("完成第" + str(n+1) + "个用户签到")
     logger.info("所有用户签到结束")
+    '''
     now_time = datetime.datetime.now()
     bj_time = now_time + datetime.timedelta(hours=8)
     requests.post('https://sc.ftqq.com/SCU74663T20ed2886a458ab9e3be21f3de4e8fd965e0b13de3ff1b.send', data={
         'text': bj_time.strftime("%Y-%m-%d %H:%M:%S %p")+'百度贴吧签到',
         'desp': signLog
     })
+    '''
 
 
 if __name__ == '__main__':
