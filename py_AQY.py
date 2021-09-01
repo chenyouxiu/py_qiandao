@@ -47,15 +47,19 @@ class IQY_sign:
         }
         res = requests.get(url, params=params, verify=False)
         # print(res.text)
-        if res.json()["code"] == "A00000":
+         if res.json()["code"] == "A00000":
             growth = res.json()[
                 "data"]["signInfo"]["data"]["rewardMap"]["growth"]
+            vipStatus = res.json()["data"]["userInfo"]["vipStatus"]
+
             continueSignDaysSum = res.json(
             )["data"]["signInfo"]["data"]["cumulateSignDaysSum"]
-            vipStatus = res.json()["data"]["userInfo"]["vipStatus"]
+
             rewardDay = 7 if continueSignDaysSum <= 7 else (
                 14 if continueSignDaysSum <= 14 else 28)
-            msg = f"VIP等级：{vipStatus}\n签到：+{growth}成长值\n已签到：{continueSignDaysSum}天/{rewardDay}天"
+
+            msg = f"VIP等级：{vipStatus}\n签到：+{growth}成长值" + \
+                '\n'+f"已签到：{continueSignDaysSum}天/{rewardDay}天"
 
             self.hot_taskCode = res.json(
             )["data"]["tasks"]["daily"][1]["taskCode"]
