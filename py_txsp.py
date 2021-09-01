@@ -11,7 +11,7 @@ new Env('腾讯视频签到')
 
 # 腾讯Cookie,
 tx_cookie = ''
-auth_refresh_url = 'auth_refresh_url = 'https://access.video.qq.com/user/auth_refresh?vappid=11059694&vsecret=fdf61a6be0aad57132bc5cdf78ac30145b6cd2c1470b0cfe&type=qq&g_tk=&g_vstk=406154242&g_actk=982078386&callback=jQuery19107263100220876779_1626052698163&_=1626052698164'
+auth_refresh_url = 'https://access.video.qq.com/user/auth_refresh?vappid=11059694&vsecret=fdf61a6be0aad57132bc5cdf78ac30145b6cd2c1470b0cfe&type=qq&g_tk=&g_vstk=406154242&g_actk=982078386&callback=jQuery19107263100220876779_1626052698163&_=1626052698164'
 
 # TG配置
 TG_TOKEN = 'xxx'  # TG机器人的TOKEN
