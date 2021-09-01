@@ -10,6 +10,7 @@ new Env('爱奇艺签到');
 
 '''
 import requests,os
+requests.packages.urllib3.disable_warnings()
 
 class IQY_sign:
     '''
