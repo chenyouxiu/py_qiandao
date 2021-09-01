@@ -5,7 +5,7 @@
 Author: Squaregentleman
 Modifier: Oreo
 Date: Tue Aug 10 08:24:30 UTC 2021
-cron: 25 0/8 * * *
+cron: 25 0/8/20 * * *
 new Env('爱奇艺签到');
 
 '''
@@ -51,7 +51,7 @@ class IQY_sign:
             growth = res.json()[
                 "data"]["signInfo"]["data"]["rewardMap"]["growth"]
             continueSignDaysSum = res.json(
-            )["data"]["signInfo"]["data"]["continueSignDaysSum"]
+            )["data"]["signInfo"]["data"]["cumulateSignDaysSum"]
             vipStatus = res.json()["data"]["userInfo"]["vipStatus"]
             rewardDay = 7 if continueSignDaysSum <= 7 else (
                 14 if continueSignDaysSum <= 14 else 28)
