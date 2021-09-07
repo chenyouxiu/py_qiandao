@@ -1,7 +1,6 @@
 '''
+cron: 25 8 * * *
 new Env('不挂科签到')
-cron: 25 0 * * *
-
 '''
 
 import requests
