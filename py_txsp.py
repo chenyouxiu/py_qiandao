@@ -11,19 +11,19 @@ new Env('腾讯视频签到')
 
 # 腾讯Cookie,
 tx_cookie = ''
-auth_refresh_url = 'https://access.video.qq.com/user/auth_refresh?vappid=11059694&vsecret=fdf61a6be0aad57132bc5cdf78ac30145b6cd2c1470b0cfe&type=qq&g_tk=&g_vstk=406154242&g_actk=982078386&callback=jQuery19107263100220876779_1626052698163&_=1626052698164'
+auth_refresh_url = 'https://access.video.qq.com/user/auth_refresh?vappid=11059694&vsecret=********&type=qq&g_tk=&g_vstk=********&g_actk=********&callback=jQuery191048649********_1575435********4&_=1575435********'
 
 # TG配置
-TG_TOKEN = 'xxx'  # TG机器人的TOKEN
-CHAT_ID = 'xxx'  # 推送消息的CHAT_ID
+#TG_TOKEN = 'xxx'  # TG机器人的TOKEN
+#CHAT_ID = 'xxx'  # 推送消息的CHAT_ID
 
 # 新版Server酱配置
-server_key = 'xxxxxx'
+#server_key = 'xxxxxx'
 
 # 企业微信配置
-corpid = 'xxx'     # 上面提到的你的企业ID
-corpsecret = 'xxx'     # 上图的Secret
-agentid = xxx  # 填写你的企业ID，不加引号，是个整型常数,就是上图的AgentId
+#corpid = 'xxx'     # 上面提到的你的企业ID
+#corpsecret = 'xxx'     # 上图的Secret
+#agentid = xxx  # 填写你的企业ID，不加引号，是个整型常数,就是上图的AgentId
 
 # 企业微信推送
 def wxPush(message):
@@ -112,6 +112,7 @@ def tx_sign():
     sign6 = response_handle(url6, sign_headers)
     send_message += '链接6' + sign6 + '\n'
     mes = '腾讯视频V力值签到通知\n\n' + send_message
+    print(mes)
     return mes
 
 
@@ -130,4 +131,4 @@ def response_handle(url, sign_headers):
 
 if __name__ == '__main__':
     message = tx_sign()
-    send_server('腾讯视频签到通知', message)
+    #send_server('腾讯视频签到通知', message)
